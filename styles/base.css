@@ -1,17 +1,81 @@
-.title-bar {
-	color: white;
-	background-color: blue;
+:root {
+	--primary-color: #004B2E;
+	--accent1-color: #CCDE45;
+	--secondary-color: #92898A;
+	--accent2-color: #E7DFE8;
 }
 
-.navigation {
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+.title-bar {
+	color: white;
+	background-color: var(--primary-color);
+	font-family: "Ranchers", sans-serif;
+	display: flex;
+	flex-direction: column;
+}
+
+.title-bar h1 {
+	align-self: center;
+}
+
+.title-bar span {
+	color: var(--accent1-color);
+	font-size: 0.85em;
+}
+
+nav {
 	display: flex;
 	color:white;
-	background-color:darkgrey;
+	background-color: var(--secondary-color);
 	justify-content: space-around;
 }
 
-.navigation a {
+nav a {
 	display: block;
 	text-decoration: none;
 	color: white;
+	padding: 1rem;
+}
+
+nav a:hover {
+	text-decoration: underline wavy var(--accent1-color);
+}
+
+.active {
+	color: var(--accent1-color);
+}
+
+main {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+}
+
+.card {
+	display: grid;
+	grid-template: 1fr 1fr / 1fr;
+	align-content: center;
+	row-gap: 0;
+}
+
+.card h2 {
+	background-color: var(--primary-color);
+	color: white;
+	text-align: center;
+	border: 1px solid lightgray;
+	margin: 1rem 1rem 0 1rem;
+	padding: 1rem;
+	border-radius: 10px 10px 0 0;
+}
+
+.card div {
+	border: 1px solid lightgray;
+	margin: 0 1rem 1rem 1rem;
+	padding: 1rem;
+	border-radius: 0 0 10px 10px;
 }
