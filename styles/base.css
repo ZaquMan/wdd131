@@ -31,7 +31,6 @@
 
 nav {
 	display: flex;
-	color:white;
 	background-color: var(--secondary-color);
 	justify-content: space-around;
 }
@@ -39,7 +38,7 @@ nav {
 nav a {
 	display: block;
 	text-decoration: none;
-	color: white;
+	color:black;
 	padding: 1rem;
 }
 
@@ -48,7 +47,7 @@ nav a:hover {
 }
 
 .active {
-	color: var(--accent1-color);
+	background-color: var(--accent2-color);
 }
 
 main {
