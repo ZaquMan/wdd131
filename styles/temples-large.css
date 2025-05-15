@@ -1,0 +1,33 @@
+@media screen and (min-width: 600px) {
+    h1 {
+        text-align: left;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: fit-content(30%) 1fr;
+        align-items: center;
+    }
+
+    .navigation {
+        flex-direction: row;
+        background-color: var(--primary-color);
+    }
+
+    .navigation a {
+        display: block;
+        flex: 1 1 100%;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    main h1 {
+        grid-column: 1 / span 3;
+    }
+}

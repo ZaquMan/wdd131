@@ -1,0 +1,75 @@
+:root {
+    --primary-color: #fe5f55;
+    --secondary-color: #5f7272;
+    --accent1-color: #eef5db;
+    --accent2-color: #394444;
+    /* https://coolors.co/b8d8d8-7a9e9f-4f6367-eef5db-fe5f55 */
+}
+
+* {
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+}
+
+header {
+    background-color: var(--primary-color);
+    position: relative;
+}
+
+#menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: 0;
+    background: none;
+    font-size: 1.5rem;
+}
+
+#menu::before {
+    content: "☰";
+    color: var(--accent1-color)
+}
+
+#menu.open::before {
+    content: "X";
+    font-weight: bolder;
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: var(--accent1-color);
+    background-color: var(--secondary-color);
+    /* Remove the empty indent where the bullet would be */
+    padding: 0;
+}
+
+.navigation a {
+    display: none;
+    text-decoration: none;
+    color: var(--accent1-color);
+}
+
+.navigation a:hover {
+    background-color: var(--accent2-color);
+    font-weight: 800;
+}
+
+.open a {
+    display: block;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+footer {
+    background-color: var(--primary-color);
+    padding: 1rem 0 0.25rem 0;
+}
