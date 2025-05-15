@@ -15,7 +15,6 @@ header {
     background-color: var(--primary-color);
     position: relative;
     color: var(--accent1-color);
-    padding: 0.5rem 1rem;
 }
 
 #menu {
