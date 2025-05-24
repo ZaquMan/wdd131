@@ -1,0 +1,110 @@
+/* CSS for mobile views */
+
+/*
+        ┌───────────────┐        
+        │  Place Title  │        
+        └───────────────┘        
+  ─────────────────────────────  
+        \                 /     
+         \               /      
+          \             /       
+           \           /        
+            \         /         
+             \       /          
+              \     /           
+           SMALL IMAGE          
+                \ /             
+                 \              
+                / \             
+               /   \            
+              /     \           
+             /       \          
+            /         \         
+           /           \        
+  ─────────────────────────────
+  ┌───────────────────────────┐  
+  │            Data           │  
+  │                           │  
+  │        Label: Value       │  
+  │                           │  
+  │        Label: Value       │  
+  │                           │  
+  │        Label: Value       │  
+  │                           │  
+  └───────────────────────────┘  
+  ┌───────────────────────────┐  
+  │           Weather         │  
+  │           ┌────┐          │  
+  │           │ \/ │          │  
+  │           │ /\ │          │  
+  │           └────┘          │  
+  │        Label: Value       │  
+  │                           │  
+  │        Label: Value       │  
+  │                           │  
+  └───────────────────────────┘  
+ ───────────────────────────────
+   Standard Footer © name local 
+       Last Modified            
+ ───────────────────────────────
+ */
+
+ :root {
+      --primary-color: #f0f61e;
+      --secondary-color: #fab2ead0;
+      --accent1-color: #3e450d;
+      --accent2-color: #4a051c;
+ }
+
+ * {
+      font-family: sans-serif;
+      text-align: center;
+ }
+
+ h1, h2 {
+      font-family: "Farro", sans-serif;
+ }
+
+ h1, footer {
+      background-color: var(--primary-color);
+      color: var(--accent1-color);
+      margin: 0;
+      padding: 1em;
+ }
+ 
+.hero img{
+    max-width: 100%;
+    height: auto;
+}
+
+ .data {
+      display: grid;
+      grid-template-rows: 1fr auto;
+      /* justify-content: center; */
+      border-bottom: 1px solid #ddd;
+      padding: 1em;
+ }
+
+ 
+ .weather {
+      display: grid;
+      grid-template-rows: auto auto auto;
+      justify-content: center;
+      justify-items: center;
+      padding: 1em;
+ }
+
+ th {
+      text-align: right;
+      width: 50%;
+ }
+
+ td {
+      text-align: left;
+      width: 50%;
+ }
+
+ .weather-icon {
+      width: 5em;
+      height: auto;
+ }

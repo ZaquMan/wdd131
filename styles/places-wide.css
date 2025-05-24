@@ -1,0 +1,80 @@
+/* CSS for computer screens */
+/*
+                        ┌─────────────┐                         
+                        │ Place Title │                         
+                        └─────────────┘                         
+┌──────────────────────────────────────────────────────────────┐
+│ ┌────────────┐                                               │
+│ │    Data    │                                               │
+│ │            │                                               │
+│ │Label: Value│                                               │
+│ │            │                                               │
+│ │Label: Value│                                               │
+│ │            │                                               │
+│ │Label: Value│                                               │
+│ │            │                                               │
+│ │Label: Value│           LARGE IMAGE                         │
+│ │            │                           ┌────────────────┐  │
+│ │Label: Value│                           │         ┌────┐ │  │
+│ └────────────┘                           │ Weather │    │ │  │
+│                                          │         └────┘ │  │
+│                                          │  Label: Value  │  │
+│                                          │  Label: Value  │  │
+│                                          │  Label: Value  │  │
+│                                          │                │  │
+│                                          └────────────────┘  │
+├──────────────────────────────────────────────────────────────┤
+│   Standard Footer Content - Copyright - name - location      │
+│                      Last Modified Date                      │
+└──────────────────────────────────────────────────────────────┘
+ */
+@media screen and (min-width: 800px)
+{
+    main {
+        position: relative;
+    }
+
+    h2 {
+        box-sizing: border-box;
+        position: absolute;
+        left: -1rem;
+        top: 0.5rem;
+        background-color: var(--secondary-color);
+        color: var(--accent2-color);
+        text-align: left;
+        margin:0;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    table {
+        position: relative;
+        padding-top: 4rem;
+    }
+
+    .weather-icon {
+        /* position: absolute;
+        right: 1.5rem; */
+        display: none;
+    }
+
+    .data {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: #ffffffa0;
+        border: none;
+    }
+
+    .weather {
+        position: absolute;
+        grid-template-rows: auto auto;
+        bottom: 1rem;
+        right: 1rem;
+        background-color: #ffffffa0;
+    }
+
+    .weather h2::after {
+        content: "  ☀️";
+    }
+}
