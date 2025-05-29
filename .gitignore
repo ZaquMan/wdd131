@@ -1,4 +1,5 @@
 # Ignore VSCode setting files
 .vscode/*
 
+*/images/originals/
 images/originals/
