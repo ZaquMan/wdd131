@@ -28,8 +28,4 @@
         grid-template-columns: 1fr 1fr 1fr;
         margin: 0 ;
     }
-
-    /* main h2 {
-        grid-column: 1 / span 3;
-    } */
 }
