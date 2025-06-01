@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD131 | Temple Gallery Assignment</title>
+    <meta name="author" content="Zach Barnett">
+    <meta name="description" content="An example webpage demonstrating changing page elements in small and large views.">
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="scripts/filtered-temples.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Temple Album</h1>
+        <button type="button" id="menu" aria-label="Navigation Menu"></button>
+        <nav>
+            <ul class="navigation">
+                <li>
+                    <a href="#" id="all">Home</a>
+                </li>
+                <li>
+                    <a href="#" id="old">Old</a>
+                </li>
+                <li>
+                    <a href="#" id="new">New</a>
+                </li>
+                <li>
+                    <a href="#" id="large">Large</a>
+                </li>
+                <li>
+                    <a href="#" id="small">Small</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Home</h2>
+        <div id="temple-images">
+            <!-- Example Figure - This gets replaced by the JavaScript -->
+            <figure>
+                <h2>Aba Nigeria</h2>
+                <p><span class="subtitle">Location:</span> Aba, Nigeria<br>
+                <span class="subtitle">Dedicated:</span> 2005, August, 7<br>
+                <span class="subtitle">Size:</span> 11500 sq ft</p>
+                <img src="https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/aba-nigeria/400x250/aba-nigeria-temple-lds-273999-wallpaper.jpg" alt="The Aba Nigeria Temple at dusk">
+            </figure>
+        </div>
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Zach Barnett | California, US</p>
+		<p id="lastmodified"></p>
+    </footer>
+</body>
+</html>
