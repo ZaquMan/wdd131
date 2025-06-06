@@ -1,0 +1,38 @@
+:root {
+    --primary-color: #85bb65;
+    --secondary-color: #ffb74d;
+}
+
+header, footer {
+    background-color: var(--primary-color);
+}
+
+header div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+header div img {
+    padding: 0 1rem;
+}
+
+.no-bullet {
+    list-style: none;
+}
+
+.box {
+    width: 10%;
+    height: 2rem;
+    border: 1px solid #aaa;
+    padding: 10px;
+    margin: 10px;
+}
+
+.primary {
+    background-color: var(--primary-color);
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+}
