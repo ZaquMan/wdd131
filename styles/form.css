@@ -1,0 +1,128 @@
+:root {
+    --primary-color: #5d2e46;
+    --accent-color-1: #fff;
+    --secondary-color: #e9e3e0;
+    --accent-color-2: #000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header, main, footer {
+    max-width: 400px;
+}
+
+header, footer {
+    background-color: var(--primary-color);
+    color: var(--accent-color-1);
+    text-align: center;
+    margin: 0;
+    padding: 10px auto;
+    width: 100%;
+}
+
+form fieldset {
+    margin: 2rem 0;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: var(--accent-color-2);
+}
+
+form label {
+    font-size: 28px;
+    display: block;
+    padding-top: 1rem;
+}
+
+form select,
+form input[type="date"],
+form textarea,
+form input[type="text"] {
+    display: block;
+    height: 28px;
+    width: 100%;
+    padding: 0.75rem;
+}
+
+.features {
+    display: block;
+    padding-top: 1rem;
+    font-size: 28px;
+}
+
+.features label {
+    padding-top: 0px;
+    font-size: 22px;
+}
+
+.features input {
+    height: 28px;
+    width: 28px;
+}
+
+button {
+    display:flex;
+    font-size: 28px;
+    margin: 0 auto 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    align-items: center;
+    padding: 1rem;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: var(--accent-color-1);
+}
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    /* margin: 40px auto; */
+    position: relative;
+}
+
+.stars input {
+    display: none;
+}
+
+.stars label {
+    width: 30px;
+    height: 30px;
+    font-family: Arial;
+    font-size: 30px;
+    transition: 0.2s ease;
+    color: #d7bb1d;
+}
+
+.stars label:hover {
+    color: orange;
+    transition: 0.2s ease;
+}
+
+.stars label:active::before {
+    transform: scale(1.1);
+}
+
+.stars label::before {
+    content:"\2606";
+    position: absolute;
+    top: 0px;
+    line-height: 26px;
+}
+
+.stars input:checked ~ label:before {
+    content:'\2605';
+}
+
+@-moz-document url-prefix() {
+    .stars input:checked ~ label:before {
+        font-size: 36px;
+        line-height: 21px;
+    }
+}
