@@ -8,6 +8,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: "Merriweather Sans", sans-serif;
 }
 
 header, main, footer {
@@ -19,7 +20,7 @@ header, footer {
     color: var(--accent-color-1);
     text-align: center;
     margin: 0;
-    padding: 10px auto;
+    padding: 10px 0;
     width: 100%;
 }
 
@@ -65,7 +66,7 @@ form input[type="text"] {
     width: 28px;
 }
 
-button {
+input[type="submit"] {
     display:flex;
     font-size: 28px;
     margin: 0 auto 1rem;
@@ -75,7 +76,7 @@ button {
     padding: 1rem;
 }
 
-button:hover {
+input[type="submit"]:hover {
     background-color: var(--primary-color);
     color: var(--accent-color-1);
 }
