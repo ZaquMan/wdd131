@@ -41,9 +41,12 @@ form input[type="date"],
 form textarea,
 form input[type="text"] {
     display: block;
-    height: 28px;
+    font-size: 1.1rem;
     width: 100%;
-    padding: 0.75rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    color: #000;
+    /* appearance: none; */
 }
 
 .features {
