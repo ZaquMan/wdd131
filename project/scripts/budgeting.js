@@ -172,8 +172,11 @@ function updateCategoryTable() {
 }
 
 function displayCategoryTotalArray() {
+	let total = 0.00;
 	categoryTable.innerHTML = "<div>Category</div>\n<div>Total</div>\n";
 	for (const [key, val] of Object.entries(categoryTotalArray)) {
 		categoryTable.innerHTML += `<div>${transactionCategories.find(tranCat => tranCat.id === key)["name"]}</div>\n<div>$${val.toFixed(2)}</div>\n`;
+		total += val;
 	}
+	categoryTable.innerHTML += `<div>Total</div>\n<div>$${total.toFixed(2)}</div>\n`;
 }

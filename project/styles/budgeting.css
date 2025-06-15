@@ -215,6 +215,11 @@ tbody tr:nth-child(even)
 #category-table div {
     margin: 1px 1rem 1px 0;
 }
+
 #category-table div:nth-child(odd) {
     font-weight: bold;
+}
+
+#category-table div:last-child {
+    border-top: black 1px solid;
 }
