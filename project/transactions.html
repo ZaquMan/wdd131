@@ -21,15 +21,43 @@
             <h1>Budgeting Tools for Beginners</h1>
             <nav class="nav-links">
                 <!-- Links back to the main page made the first week of class -->
-                <a href="info.html" class="active">How to Budget</a>
+                <a href="info.html">How to Budget</a>
                 <a href="budget.html">Budget Calculator</a>
-                <a href="transactions.html">Transaction Tracker</a>
+                <a href="transactions.html" class="active">Transaction Tracker</a>
                 <a href="../index.html">About Me</a>                
             </nav>
         </div>
     </header>
     <main>
-        
+        <div class="page-title"><h2>Transaction List</h2></div>
+        <form>
+            <label>Transaction Name
+                <input type="text" id="transaction-name" name="transaction-name" required>
+            </label>
+            <label>Amount (+ for income, - for payments)
+                <input type="number" placeholder="(-)0.00" id="amount" name="amount" step="0.01" required>
+            </label>
+            <label>Category
+                <select name="category" id="category" required>
+                    <option value="" disabled selected>Select a Category...</option>
+                </select>
+            </label>
+            <input type="button" name="submit" id="submit" value="Add Transaction">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th >Remove</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-table">
+
+            </tbody>
+        </table>
+        <div id="category-table"></div>
     </main>
     <footer>
         <div class="copyright">
