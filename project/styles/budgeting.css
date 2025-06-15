@@ -223,3 +223,115 @@ tbody tr:nth-child(even)
 #category-table div:last-child {
     border-top: black 1px solid;
 }
+
+#budget-calculator input[type="radio"],
+#budget-calculator input[type="checkbox"] {
+    margin-right: 1.5rem;
+}
+
+#budget-calculator .tithing-box {
+    margin: 1rem 0;
+}
+
+.tithing-box input[type="number"] {
+    border: 0;
+}
+
+#budget-calculator fieldset {
+    display: grid;
+    grid-template-columns: 3fr 1em 1fr;
+}
+
+#budget-calculator .expenses {
+    grid-template-columns: 0.25fr 3fr 1em 1fr;
+}
+
+.income label,
+.income input,
+.income .symbol,
+.expenses label,
+.expenses input,
+.expenses .symbol {
+    border: 1px solid gray;
+}
+
+#budget-calculator .symbol {
+    border-right: 0;
+}
+
+#budget-calculator input {
+    border-left: 0;
+}
+
+#budget-calculator .labeled-input {
+    justify-self: stretch;
+}
+
+#budget-calculator .heavy-bottom-border {
+    border-bottom: 3px solid gray;
+}
+
+.vert {
+    writing-mode: sideways-lr;
+    text-align: center;
+
+}
+
+.vert-0 {
+    grid-row: 2/9;
+}
+
+.vert-1 {
+    grid-row: 9/14;
+}
+
+.vert-2 {
+    grid-row: 14/24;
+}
+
+.vert-3 {
+    grid-row: 24/30;
+}
+
+.vert-4 {
+    grid-row: 30/40;
+}
+
+.vert-5 {
+    grid-row: 40/45;
+}
+
+.vert-6 {
+    grid-row: 45/52;
+}
+
+#budget-calculator legend {
+    font-size: 1.3rem;
+}
+
+.worksheet-heading {
+    font-size: 1.1rem;
+}
+
+.breakdown {
+    display:grid;
+    grid-template-columns: 1em 1fr 3em 1em 1fr 3em 1em 1fr;
+    margin: 1rem;
+}
+
+.breakdown .symbol,
+.breakdown .breakdown-value {
+    border: 1px solid gray;
+}
+
+.breakdown .symbol {
+    border-right: 0;
+}
+
+.breakdown .breakdown-value {
+    border-left: 0;
+}
+
+.breakdown .operand {
+    text-align: center;
+}
