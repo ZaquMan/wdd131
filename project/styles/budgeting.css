@@ -10,6 +10,14 @@
     font-family: 'Merriweather Sans', sans-serif;
 }
 
+h1, h2, h3 {
+    font-family:  'Ysabeau SC', 'Merriweather Sans', sans-serif;
+}
+
+h1 {
+    font-weight: 900;
+}
+
 header, footer {
     background-color: var(--primary-color);
     color: var(--accent-color-1);
@@ -43,11 +51,14 @@ header div {
 
 .nav-links a {
     padding: 5px 0.5rem;
+    color: var(--secondary-color);
+    text-shadow: 0 0 4px var(--accent-color-1);
 }
 
 .nav-links a:hover {
     background-color: var(--secondary-color);
     color: var(--accent-color-2);
+    text-shadow: none;
 }
 
 footer {
@@ -86,14 +97,6 @@ footer img {
 a {
     text-decoration: none;
     color: inherit;
-}
-
-h1, h2 {
-    font-family: 'Ysabeau SC', 'Merriweather Sans', sans-serif;
-}
-
-h1 {
-    font-weight: 900;
 }
 
 main {
@@ -158,7 +161,7 @@ main h2 {
 
 .budgeting-info .row {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     background-color: var(--background);
     margin: 1rem;
     padding: 0.5rem;
@@ -180,6 +183,12 @@ main h2 {
     width: 200px;
     height: auto;
     min-width: 200px;
+}
+
+.budgeting-info a {
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-shadow: 0 0 4px var(--accent-color-1);
 }
 
 th {
@@ -243,7 +252,7 @@ tbody tr:nth-child(even)
 }
 
 #budget-calculator .expenses {
-    grid-template-columns: 0.25fr 3fr 1em 1fr;
+    grid-template-columns: 1.5rem 3fr 1em 1fr;
 }
 
 .income label,
@@ -253,6 +262,7 @@ tbody tr:nth-child(even)
 .expenses input,
 .expenses .symbol {
     border: 1px solid gray;
+    border-top: 0;
 }
 
 #budget-calculator .symbol {
@@ -278,31 +288,31 @@ tbody tr:nth-child(even)
 }
 
 .vert-0 {
-    grid-row: 2/9;
+    grid-row: 2/8;
 }
 
 .vert-1 {
-    grid-row: 9/14;
+    grid-row: 8/12;
 }
 
 .vert-2 {
-    grid-row: 14/24;
+    grid-row: 12/21;
 }
 
 .vert-3 {
-    grid-row: 24/30;
+    grid-row: 21/26;
 }
 
 .vert-4 {
-    grid-row: 30/40;
+    grid-row: 26/36;
 }
 
 .vert-5 {
-    grid-row: 40/45;
+    grid-row: 36/40;
 }
 
 .vert-6 {
-    grid-row: 45/52;
+    grid-row: 40/46;
 }
 
 #budget-calculator legend {
@@ -334,4 +344,10 @@ tbody tr:nth-child(even)
 
 .breakdown .operand {
     text-align: center;
+}
+
+.breakdown .grid-label {
+    grid-column: span 2;
+    text-align: center;
+    font-weight: bold;
 }

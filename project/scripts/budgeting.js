@@ -17,166 +17,73 @@ lastmodified.innerHTML = `Last Modified: <span class="highlight">${new Intl.Date
 		timeStyle: "medium"
 	}).format(modifieddate)}</span>`;
 	
-const categoryHTML = document.querySelector("#category");
-const transactionNameInput = document.querySelector("#transaction-name");
-const transactionAmountInput = document.querySelector("#amount");
-const transactionCategoryInput = document.querySelector("#category");
-const submitButton = document.querySelector("#submit");
-const transactionTable = document.querySelector("#transaction-table");
-const categoryTable = document.querySelector("#category-table");
 
-let transactionArray = getTransactionList() || [];
-let categoryTotalArray = {};
-const transactionCategories = [
-	{
-		id: "income",
-		name: "General Income"
-	},
-	{
-		id: "tithing",
-		name: "Tithes and Offerings"
-	},
-	{
-		id: "housing",
-		name: "Housing"
-	},
-	{
-		id: "food",
-		name: "Food"
-	},
-	{
-		id: "transportation",
-		name: "Transportation"
-	},
-	{
-		id: "utilities",
-		name: "Utilities"
-	},
-	{
-		id: "insurance",
-		name: "Insurance"
-	},
-	{
-		id: "savings",
-		name: "Savings"
-	},
-	{
-		id: "personal",
-		name: "Personal Expenses"
-	},
-	{
-		id: "medical",
-		name: "Medical"
-	},
-	{
-		id: "entertainment",
-		name: "Entertainment"
-	},
-	{
-		id: "emergency",
-		name: "Emergencies"
-	},
-	{
-		id: "misc",
-		name: "Miscellaneous Expenses"
-	},
-];
 
-function categoryTemplate(category)
-{
-	return `<option value="${category.id}">${category.name}</option>`;
-}
-
-categoryHTML.innerHTML += transactionCategories.map(categoryTemplate).join("\n");
-
-transactionArray.forEach(transaction => {
-	displayList(transaction);
+//Budget Form Spaghetti Code
+const inputFields = Array.from(document.querySelectorAll("#budget-calculator input"));
+inputFields.forEach(input => {
+	input.addEventListener("input", () => { updateForm(); });
 });
 
-updateCategoryTable();
+const tithingCheckbox = document.querySelector("#include-tithing");
+tithingCheckbox.addEventListener("click", () => { updateForm() });
 
-submitButton.addEventListener("click", () => {
-	if (transactionNameInput.value != "" &&
-		transactionAmountInput != "" &&
-		transactionCategoryInput != "")
-	{
-		let newTransaction = [transactionNameInput.value,
-		parseFloat(transactionAmountInput.value).toFixed(2),
-		transactionCategoryInput.value
-		];
-		displayList(newTransaction);
-		transactionArray.push(newTransaction);
-		setTransactionList();
-		updateCategoryTable();
-		transactionNameInput.value = "";
-		transactionAmountInput.value = "";
-		transactionCategoryInput.value = "";
-		transactionNameInput.focus();
+
+const incomeTotal = document.querySelector("#income-total");
+const housingExpenseTotal = document.querySelector("#housing-total");
+const foodExpenseTotal = document.querySelector("#food-total");
+const transportExpenseTotal = document.querySelector("#transport-total");
+const healthExpenseTotal = document.querySelector("#health-total");
+const personalExpenseTotal = document.querySelector("#personal-total");
+const schoolExpenseTotal = document.querySelector("#school-total");
+const otherExpenseTotal = document.querySelector("#other-total");
+const totalExpenses = document.querySelector("#total-expense");
+
+
+function updateForm() {
+	updateSubset(".income-amount", incomeTotal);
+	updateSubset(".housing-expense", housingExpenseTotal);
+	updateSubset(".food-expense", foodExpenseTotal);
+	updateSubset(".transportation-expense", transportExpenseTotal);
+	updateSubset(".health-expense", healthExpenseTotal);
+	updateTithing();
+	updateSubset(".personal-expense", personalExpenseTotal);
+	updateSubset(".school-expense", schoolExpenseTotal);
+	updateSubset(".other-expense", otherExpenseTotal);
+	updateTotal();
+	const incomeBreakdown = document.querySelector("#income-breakdown");
+	const expenseBreakdown = document.querySelector("#expense-breakdown");
+	const totalBreakdown = document.querySelector("#total-breakdown");
+
+	incomeBreakdown.textContent = incomeTotal.value;
+	expenseBreakdown.textContent = totalExpenses.value;
+	totalBreakdown.textContent = (parseFloat(incomeTotal.value) - parseFloat(totalExpenses.value)).toFixed(2);
+}
+
+function updateSubset(tag, sumElement) {
+	const contributors = document.querySelectorAll(`${tag}`);
+	let total = 0.0
+	contributors.forEach(contributor => { total += parseFloat(contributor.value) || 0 });
+	sumElement.value = total.toFixed(2);
+}
+
+function updateTithing() {
+	const tithingTotal = document.querySelector("#tithing");
+	if (tithingCheckbox.checked) {
+		tithingTotal.value = (parseFloat(incomeTotal.value) * 0.10).toFixed(2)
+	} else {
+		tithingTotal.value = 0.00;
 	}
-});
-
-function displayList(item) {
-	const tableRow = transactionTable.insertRow()
-	const deleteBtn = document.createElement("button");
-
-	//Add transaction details, with custom formatting for each cell
-	let newCell = tableRow.insertCell();
-	let newText = document.createTextNode(item[0]);
-	newCell.appendChild(newText);
-	newCell = tableRow.insertCell();
-	newText = document.createTextNode(`$${item[1]}`);
-	newCell.appendChild(newText);
-	newCell = tableRow.insertCell();
-	newText = document.createTextNode(transactionCategories.find(tranCat => tranCat.id === item[2])["name"]);
-	newCell.appendChild(newText);
-
-	deleteBtn.textContent = "❌";
-	deleteBtn.classList.add("delete");
-	let deleteCell = tableRow.insertCell();
-	deleteCell.appendChild(deleteBtn);
-
-	deleteBtn.addEventListener("click", () => {
-		//Something about 
-		transactionTable.deleteRow(tableRow.rowIndex - 1);
-		deleteTransaction(item);
-		updateCategoryTable();
-		transactionNameInput.focus();
-	});
 }
 
-function setTransactionList() {
-	localStorage.setItem("transaction-list", JSON.stringify(transactionArray));
-}
-
-function getTransactionList() {
-	return JSON.parse(localStorage.getItem("transaction-list"));
-}
-
-function deleteTransaction(transaction) {
-	transactionArray = transactionArray.filter(item => item !== transaction);
-	setTransactionList();
-}
-
-function updateCategoryTable() {
-	//Reset the array
-	categoryTotalArray = {};
-	if (transactionArray.length > 0) {
-		transactionArray.forEach(transItem => {
-			if (transItem[2] in categoryTotalArray) {
-				categoryTotalArray[transItem[2]] += parseFloat(transItem[1]);
-			}
-			else categoryTotalArray[transItem[2]] = parseFloat(transItem[1]);
-		});
-	}
-	displayCategoryTotalArray();
-}
-
-function displayCategoryTotalArray() {
-	let total = 0.00;
-	categoryTable.innerHTML = "<div>Category</div>\n<div>Total</div>\n";
-	for (const [key, val] of Object.entries(categoryTotalArray)) {
-		categoryTable.innerHTML += `<div>${transactionCategories.find(tranCat => tranCat.id === key)["name"]}</div>\n<div>$${val.toFixed(2)}</div>\n`;
-		total += val;
-	}
-	categoryTable.innerHTML += `<div>Total</div>\n<div>$${total.toFixed(2)}</div>\n`;
+function updateTotal() {
+	let total = 0.0;
+	total += parseFloat(housingExpenseTotal.value);
+	total += parseFloat(foodExpenseTotal.value);
+	total += parseFloat(transportExpenseTotal.value);
+	total += parseFloat(healthExpenseTotal.value);
+	total += parseFloat(personalExpenseTotal.value);
+	total += parseFloat(schoolExpenseTotal.value);
+	total += parseFloat(otherExpenseTotal.value);
+	totalExpenses.value = total.toFixed(2);
 }

@@ -22,8 +22,8 @@
             <nav class="nav-links">
                 <!-- Links back to the main page made the first week of class -->
                 <a href="info.html">How to Budget</a>
-                <a href="budget.html" class="active">Budget Calculator</a>
                 <a href="transactions.html" >Transaction Tracker</a>
+                <a href="budget.html" class="active">Budget Calculator</a>
                 <a href="../index.html">About Me</a>                
             </nav>
         </div>
@@ -32,205 +32,177 @@
         <div class="page-title"><h2>Budget Calculator</h2></div>
         <!-- This is a recreation of the budget worksheet provided by the FTC -->
          <form id="budget-calculator">
-            <label for="use-dollar-amount">Use Dollar Amounts</label>
-            <input type="radio" id="use-dollar-amount" name="use-dollar-amount" value="true" required checked>
-            <label for="use-percentage">Use Category Percentages</label>
-            <input type="radio" id="use-percentage" name="use-dollar-amount" value="false" required>
-            <div class="tithing-box">
-                <label for="include-tithing">Auto include 10% tithing</label>
-                <input type="checkbox" id="include-tithing" name="include-tithing" value="true">
-                <label for="tithing">$</label>
-                <input type="number" id="tithing" name="tithing" readonly disabled value="0.00">
-            </div>
             <fieldset class="income">
                 <legend>My income this month</legend>
-                <div class="worksheet-heading">Income</div>
-                <div></div>
-                <div class="worksheet-heading">Monthly Total</div>
+                <div class="worksheet-heading heavy-bottom-border">Income</div>
+                <div  class="heavy-bottom-border"></div>
+                <div class="worksheet-heading heavy-bottom-border">Monthly Total</div>
                 <label for="income-wages">Wages after taxes</label>
                 <div class="symbol">$</div>
-                <input type="number" id="income-wages" name="income-wages">
+                <input type="number" id="income-wages" name="income-wages" class="income-amount">
                 <label for="income-other">Other income (like child support)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="income-other" name="income-other">
-                <label for="income-total">Total monthly Income</label>
-                <div class="symbol">$</div>
-                <input type="number" id="income-total" name="income-total" readonly disabled>
+                <input type="number" id="income-other" name="income-other" class="income-amount">
+                <label for="income-total" class="heavy-bottom-border">Total monthly Income</label>
+                <div class="symbol heavy-bottom-border">$</div>
+                <input type="number" id="income-total" name="income-total" readonly class="heavy-bottom-border">
             </fieldset>
             <fieldset class="expenses">
                 <legend>My expenses this month</legend>
-                <div></div>
-                <div>Expenses</div>
-                <div></div>
-                <div>Monthly Total</div>
-                <div class="vert vert-0">Housing</div>
+                <div class="heavy-bottom-border"></div>
+                <div class="heavy-bottom-border">Expenses</div>
+                <div class="heavy-bottom-border"></div>
+                <div class="heavy-bottom-border">Monthly Total</div>
+                <div class="vert vert-0 heavy-bottom-border">Housing</div>
                 <label for="rent">Rent or mortgage</label>
                 <div class="symbol">$</div>
-                <input type="number" id="rent" name="rent" class="dollar-amount">
+                <input type="number" id="rent" name="rent" class="housing-expense">
                 <label for="insurance">Insurance (like renter's, homeowner's)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="insurance" name="insurance" class="dollar-amount">
+                <input type="number" id="insurance" name="insurance" class="housing-expense">
                 <label for="utilities">Utilities (like electricity, gas, water)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="utilities" name="utilities" class="dollar-amount">
-                <label for="dining">Eating out/food delivery</label>
-                <div class="symbol">$</div>
-                <input type="number" id="dining" name="dining" class="dollar-amount">
-                <label for="food-other">Other food expenses</label>
-                <div class="symbol">$</div>
-                <input type="number" id="food-other" name="food-other" class="dollar-amount">
-                <label for="housing-percentage">Housing Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="housing-percentage" name="housing-percentage" class="percentage-amount">
-                <label for="housing-total" class="heavy-bottom-border">Housing Total Expenses</label>
-                <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="housing-total" name="housing-total" class="heavy-bottom-border" readonly disabled>
-
-                <div class="vert vert-1">Food</div>
-                <label for="grocery">Groceries and household supplies</label>
-                <div class="symbol">$</div>
-                <input type="number" id="grocery" name="grocery" class="dollar-amount">
+                <input type="number" id="utilities" name="utilities" class="housing-expense">
                 <label for="comm">Internet and phone</label>
                 <div class="symbol">$</div>
-                <input type="number" id="comm" name="comm" class="dollar-amount">
+                <input type="number" id="comm" name="comm" class="housing-expense">
                 <label for="housing-other">Other housing expenses (like property taxes, condo fees)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="housing-other" name="housing-other" class="dollar-amount">
-                <label for="food-percentage">Food Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="food-percentage" name="food-percentage" class="percentage-amount">
+                <input type="number" id="housing-other" name="housing-other" class="housing-expense">
+                <label for="housing-total" class="heavy-bottom-border">Housing Total Expenses</label>
+                <div class="symbol heavy-bottom-border">$</div>
+                <input type="number" id="housing-total" name="housing-total" class="heavy-bottom-border" readonly>
+
+                <div class="vert vert-1 heavy-bottom-border">Food</div>
+                <label for="grocery">Groceries and household supplies</label>
+                <div class="symbol">$</div>
+                <input type="number" id="grocery" name="grocery" class="food-expense">
+                <label for="dining">Eating out/food delivery</label>
+                <div class="symbol">$</div>
+                <input type="number" id="dining" name="dining" class="food-expense">
+                <label for="food-other">Other food expenses</label>
+                <div class="symbol">$</div>
+                <input type="number" id="food-other" name="food-other" class="food-expense">
                 <label for="food-total" class="heavy-bottom-border">Food Total Expenses</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="food-total" name="food-total" class="heavy-bottom-border" readonly disabled>
+                <input type="number" id="food-total" name="food-total" class="heavy-bottom-border" readonly>
                 
-                <div class="vert vert-2">Transportation</div>
+                <div class="vert vert-2 heavy-bottom-border">Transportation</div>
                 <label for="public-transit">Public Transportation</label>
                 <div class="symbol">$</div>
-                <input type="number" id="public-transit" name="public-transit" class="dollar-amount">
+                <input type="number" id="public-transit" name="public-transit" class="transportation-expense">
                 <label for="taxi">Taxi and Rideshares</label>
                 <div class="symbol">$</div>
-                <input type="number" id="taxi" name="taxi" class="dollar-amount">
+                <input type="number" id="taxi" name="taxi" class="transportation-expense">
                 <label for="gas">Gas for car</label>
                 <div class="symbol">$</div>
-                <input type="number" id="gas" name="gas" class="dollar-amount">
+                <input type="number" id="gas" name="gas" class="transportation-expense">
                 <label for="parking">Parking and tolls</label>
                 <div class="symbol">$</div>
-                <input type="number" id="parking" name="parking" class="dollar-amount">
+                <input type="number" id="parking" name="parking" class="transportation-expense">
                 <label for="maintenance">Car maintenance (like oil changes)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="maintenance" name="maintenance" class="dollar-amount">
+                <input type="number" id="maintenance" name="maintenance" class="transportation-expense">
                 <label for="car-insurance">Car insurance</label>
                 <div class="symbol">$</div>
-                <input type="number" id="car-insurance" name="car-insurance" class="dollar-amount">
+                <input type="number" id="car-insurance" name="car-insurance" class="transportation-expense">
                 <label for="car-payment">Car payment</label>
                 <div class="symbol">$</div>
-                <input type="number" id="car-payment" name="car-payment" class="dollar-amount">
+                <input type="number" id="car-payment" name="car-payment" class="transportation-expense">
                 <label for="transport-other">Other transportation Expenses</label>
                 <div class="symbol">$</div>
-                <input type="number" id="transport-other" name="transport-other" class="dollar-amount">
-                <label for="transport-percentage">Transportation Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="transport-percentage" name="transport-percentage" class="percentage-amount">
+                <input type="number" id="transport-other" name="transport-other" class="transportation-expense">
                 <label for="transport-total" class="heavy-bottom-border">Transportation Total Expenses</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="transport-total" name="transport-total" class="heavy-bottom-border" readonly disabled>
+                <input type="number" id="transport-total" name="transport-total" class="heavy-bottom-border" readonly>
                 
-                <div class="vert vert-3">Health</div>
+                <div class="vert vert-3 heavy-bottom-border">Health</div>
                 <label for="health-insurance">Health Insurance</label>
                 <div class="symbol">$</div>
-                <input type="number" id="health-insurance" name="health-insurance" class="dollar-amount">
+                <input type="number" id="health-insurance" name="health-insurance" class="health-expense">
                 <label for="prescription">Prescriptions</label>
                 <div class="symbol">$</div>
-                <input type="number" id="prescription" name="prescription" class="dollar-amount">
+                <input type="number" id="prescription" name="prescription" class="health-expense">
                 <label for="copay">Co-pays for Doctors' appointments</label>
                 <div class="symbol">$</div>
-                <input type="number" id="copay" name="copay" class="dollar-amount">
+                <input type="number" id="copay" name="copay" class="health-expense">
                 <label for="health-other">Other health Expenses</label>
                 <div class="symbol">$</div>
-                <input type="number" id="health-other" name="health-other" class="dollar-amount">
-                <label for="health-percentage">Health Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="health-percentage" name="health-percentage" class="percentage-amount">
+                <input type="number" id="health-other" name="health-other" class="health-expense">
                 <label for="health-total" class="heavy-bottom-border">Health Total Expenses</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="health-total" name="health-total" class="heavy-bottom-border" readonly disabled>
+                <input type="number" id="health-total" name="health-total" class="heavy-bottom-border" readonly>
                 
-                <div class="vert vert-4">Personal and Family</div>
+                <div class="vert vert-4 heavy-bottom-border">Personal and Family</div>
                 <label for="childcare">Childcare (like daycare, babysitting)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="childcare" name="childcare" class="dollar-amount">
+                <input type="number" id="childcare" name="childcare" class="personal-expense">
                 <label for="child-support">Child support you pay</label>
                 <div class="symbol">$</div>
-                <input type="number" id="child-support" name="child-support" class="dollar-amount">
+                <input type="number" id="child-support" name="child-support" class="personal-expense">
                 <label for="family">Money you send to Family</label>
                 <div class="symbol">$</div>
-                <input type="number" id="family" name="family" class="dollar-amount">
+                <input type="number" id="family" name="family" class="personal-expense">
                 <label for="clothing">Clothing and shoes</label>
                 <div class="symbol">$</div>
-                <input type="number" id="clothing" name="clothing" class="dollar-amount">
+                <input type="number" id="clothing" name="clothing" class="personal-expense">
                 <label for="entertainment">Entertainment (like subscriptions, movies, concerts)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="entertainment" name="entertainment" class="dollar-amount">
-                <label for="travel">travel</label>
+                <input type="number" id="entertainment" name="entertainment" class="personal-expense">
+                <label for="travel">Travel</label>
                 <div class="symbol">$</div>
-                <input type="number" id="travel" name="travel" class="dollar-amount">
+                <input type="number" id="travel" name="travel" class="personal-expense">
                 <label for="gym">Gym or fitness membership</label>
                 <div class="symbol">$</div>
-                <input type="number" id="gym" name="gym" class="dollar-amount">
+                <input type="number" id="gym" name="gym" class="personal-expense">
+                <label>Auto calculate 10% tithing<input type="checkbox" id="include-tithing" name="include-tithing" value="true"></label>
+                <div class="symbol">$</div>
+                <input type="number" id="tithing" name="tithing" class="personal-expense" value="0.00">
                 <label for="personal-other">Other personal and family expenses (like donations, laundry, haircuts)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="personal-other" name="personal-other" class="dollar-amount">
-                <label for="personal-percentage">Personal Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="personal-percentage" name="personal-percentage" class="percentage-amount">
+                <input type="number" id="personal-other" name="personal-other" class="personal-expense">
                 <label for="personal-total" class="heavy-bottom-border">Personal Total Expenses</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="personal-total" name="personal-total" class="heavy-bottom-border" readonly disabled>
+                <input type="number" id="personal-total" name="personal-total" class="heavy-bottom-border" readonly>
                 
-                <div class="vert vert-5">School</div>
+                <div class="vert vert-5 heavy-bottom-border">School</div>
                 <label for="loan">Student loan payment</label>
                 <div class="symbol">$</div>
-                <input type="number" id="loan" name="loan" class="dollar-amount">
+                <input type="number" id="loan" name="loan" class="school-expense">
                 <label for="tuition">Tuition payment</label>
                 <div class="symbol">$</div>
-                <input type="number" id="tuition" name="tuition" class="dollar-amount">
+                <input type="number" id="tuition" name="tuition" class="school-expense">
                 <label for="school-other">Other school expenses (like books, supplies)</label>
                 <div class="symbol">$</div>
-                <input type="number" id="school-other" name="school-other" class="dollar-amount">
-                <label for="school-percentage">School Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="school-percentage" name="school-percentage" class="percentage-amount">
+                <input type="number" id="school-other" name="school-other" class="school-expense">
                 <label for="school-total" class="heavy-bottom-border">School Total Expense</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="school-total" name="school-total" class="heavy-bottom-border" readonly disabled>
+                <input type="number" id="school-total" name="school-total" class="heavy-bottom-border" readonly>
                 
-                <div class="vert vert-6">Other</div>
+                <div class="vert vert-6 heavy-bottom-border">Other</div>
                 <label for="fees">Bank account or credit card fees</label>
                 <div class="symbol">$</div>
-                <input type="number" id="fees" name="fees" class="dollar-amount">
+                <input type="number" id="fees" name="fees" class="other-expense">
                 <label for="debt">Credit card or other debt-payments</label>
                 <div class="symbol">$</div>
-                <input type="number" id="debt" name="debt" class="dollar-amount">
+                <input type="number" id="debt" name="debt" class="other-expense">
                 <label for="savings">Savings deposits</label>
                 <div class="symbol">$</div>
-                <input type="number" id="savings" name="savings" class="dollar-amount">
+                <input type="number" id="savings" name="savings" class="other-expense">
                 <label for="investment">Investment contributions</label>
                 <div class="symbol">$</div>
-                <input type="number" id="investment" name="investment" class="dollar-amount">
+                <input type="number" id="investment" name="investment" class="other-expense">
                 <label for="other-other">Other expenses this month</label>
                 <div class="symbol">$</div>
-                <input type="number" id="other-other" name="other-other" class="dollar-amount">
-                <label for="other-percentage">Other Percentage</label>
-                <div class="symbol">%</div>
-                <input type="number" id="other-percentage" name="other-percentage" class="percentage-amount">
+                <input type="number" id="other-other" name="other-other" class="other-expense">
                 <label for="other-total" class="heavy-bottom-border">Other Total Expenses</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="other-total" name="other-total" class="heavy-bottom-border" readonly disabled>
-                <div></div>
-                
-                <label for="total" class="heavy-bottom-border">Total Monthly Expenses</label>
+                <input type="number" id="other-total" name="other-total" class="heavy-bottom-border" readonly>
+
+                <div class="heavy-bottom-border"></div>
+                <label for="total-expense" class="heavy-bottom-border">Total Monthly Expenses</label>
                 <div class="symbol heavy-bottom-border">$</div>
-                <input type="number" id="total" name="total" class="heavy-bottom-border" readonly disabled>
+                <input type="number" id="total-expense" name="total-expense" class="heavy-bottom-border" readonly>
 
             </fieldset>
          </form>
@@ -244,6 +216,10 @@
             <div class="operand">=</div>
             <div class="symbol">$</div>
             <span id="total-breakdown" class="breakdown-value"></span>
+            <div class="grid-label">Income</div>
+            <div></div>
+            <div class="grid-label">Expenses</div>
+            <div></div>
          </div>
     </main>
     <footer>
